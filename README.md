@@ -37,10 +37,11 @@ Ensure your project directory is structured as follows:
   ```
 
 
--  To use this service, you will need an API key from [OPENAI](https://openai.com/). Follow these steps to set up your environment
--  1. Obtain an API key by [link to obtain the API key](https://platform.openai.com/api-keys).
--  2. Create a file named `.env` in the `/node3` directory of this project.
--  3. Inside the `.env` file, add the following line (replace `YOUR_API_KEY_HERE` with the key you obtained):
+  To use this service, you will need an API key from [OPENAI](https://openai.com/). Follow these steps to set up your environment
+-   Obtain an API key by [link to obtain the API key](https://platform.openai.com/api-keys).
+-   Create a file named `.env` in the `/node3` directory of this project.
+-   Inside the `.env` file, add the following line (replace `YOUR_API_KEY_HERE` with the key you obtained):
+  
       ```
       OPENAI_API_KEY=YOUR_API_KEY_HERE
       ```
