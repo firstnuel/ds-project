@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DNSVMS - Submit Job</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        #scanningMessage {
+            display: none;
+        }
+        .header {
+            background-color: #007bff; /* Bootstrap primary color */
+            color: #ffffff;
+            padding: 10px 0;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            text-align: center;
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Distributed Network Scanner and Vulnerability Management System (DNSVMS)</h1>
+    </div>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Enter IP Address for Scanning</h2>
+        <form id="ipForm" action="/submit" method="post" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="ip">IP Address:</label>
+                <input type="text" class="form-control" id="ip" name="ip" required>
+                <div class="invalid-feedback">
+                    Please enter a valid IP address.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+        <div id="scanningMessage" class="alert alert-info mt-4">
+            Scanning IP address. Please be patient as this process may take a few minutes.
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById("ipForm").onsubmit = function(event) {
+            var ipInput = document.getElementById("ip");
+            var ipPattern = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+            if (!ipPattern.test(ipInput.value)) {
+                ipInput.classList.add("is-invalid");
+                event.preventDefault();
+                return false;
+            } else {
+                ipInput.classList.remove("is-invalid");
+                // Show scanning message
+                document.getElementById("scanningMessage").style.display = "block";
+                // Optionally, hide the form or disable input elements here
+            }
+            // Delay the form submission to ensure the user sees the message
+            setTimeout(function() {
+                document.getElementById("ipForm").submit();
+            }, 2000); // Adjust the timeout as needed
+            event.preventDefault(); // Prevent immediate form submission
+        };
+    </script>
+</body>
+</html>

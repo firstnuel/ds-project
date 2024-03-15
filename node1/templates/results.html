@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Analysis Results - DNSVMS</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        .header {
+            background-color: #007bff; /* Bootstrap primary color */
+            color: #ffffff;
+            padding: 10px 0;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            text-align: center;
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+        .full-screen {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #f8f9fa;
+        }
+        .container {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+            overflow: auto;
+        }
+        pre {
+            white-space: pre-wrap;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Distributed Network Scanner and Vulnerability Management System (DNSVMS)</h1>
+    </div>
+    <div class="full-screen d-flex align-items-center justify-content-center">
+        <div class="container">
+            <h2>AI Analysis Results for IP Address: {{ ip_address }}</h2>
+            <pre>{{ results.ai_analysis }}</pre>
+            <button class="btn btn-info" onclick="toggleRawData()">View Raw Scan Data</button>
+            <div id="rawData" class="hidden">
+                <h3>Raw Scan Data:</h3>
+                <pre>{{ results.raw_scan_data }}</pre>
+            </div>
+            <div class="text-center mt-3">
+                <a href="{{ url_for('index') }}" class="btn btn-primary">Submit Another Scan</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleRawData() {
+            var rawDataDiv = document.getElementById("rawData");
+            if (rawDataDiv.classList.contains("hidden")) {
+                rawDataDiv.classList.remove("hidden");
+            } else {
+                rawDataDiv.classList.add("hidden");
+            }
+        }
+    </script>
+</body>
+</html>

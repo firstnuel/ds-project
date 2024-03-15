@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  node1-app:
+    image: node1-app  
+    build: ./node1  
+    ports:
+      - "5001:5001"  
+    networks:
+      - app-network
+
+  processor-app:
+    image: processor-app  
+    build: ./node2  
+    ports:
+      - "5002:5002"  
+    networks:
+      - app-network
+
+  analysis-app:
+    image: analysis-app  
+    build: ./node3  
+    ports:
+      - "5003:5003"  
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
