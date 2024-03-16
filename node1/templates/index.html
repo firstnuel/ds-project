@@ -36,6 +36,22 @@
                     Please enter a valid IP address.
                 </div>
             </div>
+            <div class="form-group">
+                <label for="scanType">Select Scan Type:</label>
+                <select class="form-control" id="scanType" name="scan_type">
+                    <option value="syn_scan">Syn Scan (Stealth Scan)</option>
+                    <option value="tcp_connect_scan">TCP Connect Scan</option>
+                    <option value="udp_scan">UDP Scan</option>
+                    <option value="ack_scan">ACK Scan</option>
+                    <option value="fin_scan">Fin Scan</option>
+                    <option value="xmas_scan">Xmas Scan</option>
+                    <option value="null_scan">Null Scan</option>
+                    <option value="os_detection">OS Detection</option>
+                    <option value="aggressive_scan">Aggressive Scan</option>
+                    <option value="intense_scan">Intense Scan</option>
+                    <option value="custom_nse">Custom Scripting Engine (NSE)</option>
+                </select>
+            </div>
             <button type="submit" class="btn btn-primary btn-block">Submit</button>
         </form>
         <div id="scanningMessage" class="alert alert-info mt-4">

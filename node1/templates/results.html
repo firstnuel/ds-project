@@ -53,7 +53,10 @@
     </div>
     <div class="full-screen d-flex align-items-center justify-content-center">
         <div class="container">
-            <h2>AI Analysis Results for IP Address: {{ ip_address }}</h2>
+            <h2>Scan Results for IP Address: {{ ip_address }}</h2>
+            <!-- Displaying Scan Type -->
+            <h4>Scan Type: {{ scan_type | capitalize }}</h4>
+            <h3>AI Analysis Results:</h3>
             <pre>{{ results.ai_analysis }}</pre>
             <button class="btn btn-info" onclick="toggleRawData()">View Raw Scan Data</button>
             <div id="rawData" class="hidden">
