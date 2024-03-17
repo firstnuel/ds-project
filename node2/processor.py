@@ -86,13 +86,14 @@ def process():
         logging.error(f"Failed to send data to Node 3. Status: {response.status_code}")
 
     return jsonify({"message": f"Job processed successfully. Results saved in {full_output_path}", "job_id": job_id}), 200
-
+'''
+#method not implemented
 @app.route('/download_output/<job_id>', methods=['GET'])
 def download_output(job_id):
     try:
         return send_from_directory(directory=os.path.join(output_directory, job_id), filename="nmap_output.txt", as_attachment=True)
     except FileNotFoundError:
         return jsonify({"error": "File not found"}), 404
-
+'''
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5002, debug=True)
